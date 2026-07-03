@@ -1,0 +1,50 @@
+[
+  {
+    "mode": "STANDARD",
+    "run": 1,
+    "deploy_status": "CREATE_COMPLETE",
+    "deploy_elapsed_s": 52.03,
+    "delete_status": "DELETE_COMPLETE",
+    "delete_elapsed_s": 21.33
+  },
+  {
+    "mode": "STANDARD",
+    "run": 2,
+    "deploy_status": "CREATE_COMPLETE",
+    "deploy_elapsed_s": 51.78,
+    "delete_status": "DELETE_COMPLETE",
+    "delete_elapsed_s": 22.39
+  },
+  {
+    "mode": "STANDARD",
+    "run": 3,
+    "deploy_status": "CREATE_COMPLETE",
+    "deploy_elapsed_s": 51.93,
+    "delete_status": "DELETE_COMPLETE",
+    "delete_elapsed_s": 25.46
+  },
+  {
+    "mode": "EXPRESS",
+    "run": 1,
+    "deploy_status": "CREATE_COMPLETE",
+    "deploy_elapsed_s": 25.58,
+    "delete_status": "DELETE_COMPLETE",
+    "delete_elapsed_s": 26.57
+  },
+  {
+    "mode": "EXPRESS",
+    "run": 2,
+    "deploy_status": "CREATE_COMPLETE",
+    "deploy_elapsed_s": 25.24,
+    "delete_status": "DELETE_COMPLETE",
+    "delete_elapsed_s": 26.44
+  },
+  {
+    "mode": "EXPRESS",
+    "run": 3,
+    "deploy_status": "CREATE_COMPLETE",
+    "deploy_elapsed_s": 25.51,
+    "delete_status": "DELETE_COMPLETE",
+    "delete_elapsed_s": 23.33
+  }
+]

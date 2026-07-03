@@ -1,0 +1,2 @@
+{"iteration": 1, "mode": "EXPRESS", "status": "CREATE_COMPLETE", "elapsed_s": 26.57, "action": "create", "failures": [], "template_chars": 3280}
+{"summary": true, "iterations": 1, "total_wall_s": 50.26, "final_status": "CREATE_COMPLETE"}

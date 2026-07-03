@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+final_conversation.json
+agent_loop_stdout.log
+benchmark_stdout.log
