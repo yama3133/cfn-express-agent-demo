@@ -1,0 +1,84 @@
+<svg viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#232F3E"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#FF9900"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="760" fill="#FFFFFF"/>
+
+  <!-- Title -->
+  <text x="600" y="46" text-anchor="middle" font-size="28" font-weight="700" fill="#232F3E">Self-Healing Infrastructure Agent</text>
+  <text x="600" y="72" text-anchor="middle" font-size="16" fill="#5A6B7B">Claude Sonnet 4.6 on Amazon Bedrock + AWS CloudFormation Express Mode</text>
+
+  <!-- Agent box -->
+  <rect x="60" y="130" width="260" height="120" rx="14" fill="#232F3E"/>
+  <text x="190" y="172" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">AI Agent</text>
+  <text x="190" y="196" text-anchor="middle" font-size="13" fill="#C9D3DC">Claude Sonnet 4.6</text>
+  <text x="190" y="216" text-anchor="middle" font-size="13" fill="#C9D3DC">Amazon Bedrock Converse API</text>
+
+  <!-- Tool box -->
+  <rect x="470" y="130" width="260" height="120" rx="14" fill="#FF9900"/>
+  <text x="600" y="172" text-anchor="middle" font-size="17" font-weight="700" fill="#232F3E">Tool: deploy_stack()</text>
+  <text x="600" y="196" text-anchor="middle" font-size="13" fill="#4A3200">CreateStack / UpdateStack</text>
+  <text x="600" y="216" text-anchor="middle" font-size="13" fill="#4A3200">DeploymentConfig: Mode=EXPRESS</text>
+
+  <!-- CloudFormation box -->
+  <rect x="880" y="130" width="260" height="120" rx="14" fill="#232F3E"/>
+  <text x="1010" y="172" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">AWS CloudFormation</text>
+  <text x="1010" y="196" text-anchor="middle" font-size="13" fill="#C9D3DC">Express Mode</text>
+  <text x="1010" y="216" text-anchor="middle" font-size="13" fill="#C9D3DC">Config applied, no wait for stabilization</text>
+
+  <!-- Arrows top row -->
+  <line x1="320" y1="190" x2="462" y2="190" stroke="#232F3E" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="391" y="178" text-anchor="middle" font-size="12" fill="#5A6B7B">writes template</text>
+
+  <line x1="730" y1="190" x2="872" y2="190" stroke="#232F3E" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="801" y="178" text-anchor="middle" font-size="12" fill="#5A6B7B">deploys</text>
+
+  <!-- Resources row -->
+  <text x="1010" y="300" text-anchor="middle" font-size="14" font-weight="700" fill="#232F3E">creates</text>
+  <line x1="1010" y1="250" x2="1010" y2="320" stroke="#232F3E" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="790" y="330" width="150" height="80" rx="10" fill="#FFFFFF" stroke="#232F3E" stroke-width="1.5"/>
+    <text x="865" y="365" text-anchor="middle" font-size="13" font-weight="700" fill="#232F3E">Lambda</text>
+    <text x="865" y="383" text-anchor="middle" font-size="11" fill="#5A6B7B">Python 3.13</text>
+
+    <rect x="960" y="330" width="150" height="80" rx="10" fill="#FFFFFF" stroke="#232F3E" stroke-width="1.5"/>
+    <text x="1035" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#232F3E">API Gateway</text>
+    <text x="1035" y="378" text-anchor="middle" font-size="11" fill="#5A6B7B">HTTP API</text>
+    <text x="1035" y="393" text-anchor="middle" font-size="11" fill="#5A6B7B">GET /health</text>
+
+    <rect x="790" y="430" width="150" height="80" rx="10" fill="#FFFFFF" stroke="#232F3E" stroke-width="1.5"/>
+    <text x="865" y="465" text-anchor="middle" font-size="13" font-weight="700" fill="#232F3E">IAM Role</text>
+    <text x="865" y="483" text-anchor="middle" font-size="11" fill="#5A6B7B">Least-privilege</text>
+
+    <rect x="960" y="430" width="150" height="80" rx="10" fill="#FFFFFF" stroke="#232F3E" stroke-width="1.5"/>
+    <text x="1035" y="465" text-anchor="middle" font-size="13" font-weight="700" fill="#232F3E">CloudWatch Logs</text>
+    <text x="1035" y="483" text-anchor="middle" font-size="11" fill="#5A6B7B">7-day retention</text>
+  </g>
+
+  <!-- Feedback loop (failure path) -->
+  <path d="M 880 250 C 700 335, 500 335, 320 260" fill="none" stroke="#FF9900" stroke-width="2.5" stroke-dasharray="7,5" marker-end="url(#arrowOrange)"/>
+  <rect x="288" y="285" width="624" height="24" fill="#FFFFFF"/>
+  <text x="600" y="302" text-anchor="middle" font-size="13" font-weight="700" fill="#B36B00">on failure: StackEvents reasons fed back &#8594; agent fixes template &#8594; redeploy</text>
+
+  <!-- Benchmark panel -->
+  <rect x="60" y="560" width="1080" height="160" rx="14" fill="#F4F6F8" stroke="#DCE3EA" stroke-width="1"/>
+  <text x="90" y="595" font-size="16" font-weight="700" fill="#232F3E">Measured: STANDARD vs EXPRESS (same template, 3 runs each, ap-northeast-1)</text>
+
+  <!-- STANDARD bar -->
+  <text x="90" y="640" font-size="13" fill="#232F3E">STANDARD</text>
+  <rect x="200" y="622" width="519" height="26" rx="4" fill="#8592A3"/>
+  <text x="729" y="640" font-size="13" fill="#232F3E">51.91s avg</text>
+
+  <!-- EXPRESS bar -->
+  <text x="90" y="680" font-size="13" fill="#232F3E">EXPRESS</text>
+  <rect x="200" y="662" width="255" height="26" rx="4" fill="#FF9900"/>
+  <text x="465" y="680" font-size="13" fill="#232F3E">25.44s avg &#8212; 2.04x faster</text>
+
+</svg>
