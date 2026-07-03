@@ -89,4 +89,4 @@ I was passing `OnFailure="DO_NOTHING"` alongside `DeploymentConfig` out of habit
 - Giving the model a *slightly* opinionated, security-conscious spec (no managed execution role, exact ARN scoping) is a better test of an agent's IaC skill than a hello-world Lambda — and Sonnet 4.6 handled the ARN-scoping subtlety correctly without being told the trick.
 - If you're building an agent loop against CloudFormation, feed the actual `StackEvents` failure reasons back to the model as the tool result, not just "it failed" — that's what turns a retry loop into an actual fix loop.
 
-All the code — the deploy/poll helper, the Bedrock tool-use loop, and the benchmark script — is about 250 lines total and available on request.
+All the code — the deploy/poll helper, the Bedrock tool-use loop, and the benchmark script — is about 250 lines total and up on GitHub: [yama3133/cfn-express-agent-demo](https://github.com/yama3133/cfn-express-agent-demo).
